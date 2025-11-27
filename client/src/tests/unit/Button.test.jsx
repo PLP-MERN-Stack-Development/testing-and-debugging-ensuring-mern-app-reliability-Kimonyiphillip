@@ -1,8 +1,8 @@
-// Button.test.jsx - Unit test for Button component
+
 
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { describe, it, expect, vi } from 'vitest';
 import Button from '../../components/Button';
 
 describe('Button Component', () => {
@@ -52,12 +52,12 @@ describe('Button Component', () => {
     const button = screen.getByRole('button', { name: /disabled/i });
     
     expect(button).toBeDisabled();
-    expect(button).toHaveClass('btn-disabled');
+    expect(button).toHaveClass('opacity-50', 'cursor-not-allowed');
   });
 
   // Test click handler
   it('calls onClick handler when clicked', () => {
-    const handleClick = jest.fn();
+    const handleClick = vi.fn();
     render(<Button onClick={handleClick}>Click me</Button>);
     const button = screen.getByRole('button', { name: /click me/i });
     
@@ -67,7 +67,7 @@ describe('Button Component', () => {
 
   // Test that disabled button doesn't call onClick
   it('does not call onClick when disabled', () => {
-    const handleClick = jest.fn();
+    const handleClick = vi.fn();
     render(<Button onClick={handleClick} disabled>Click me</Button>);
     const button = screen.getByRole('button', { name: /click me/i });
     
@@ -89,7 +89,7 @@ describe('Button Component', () => {
     const button = screen.getByRole('button', { name: /custom class/i });
     
     expect(button).toHaveClass('custom-class');
-    // Should also have the default classes
+
     expect(button).toHaveClass('btn-primary');
   });
-}); 
+});

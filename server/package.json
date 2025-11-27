@@ -1,0 +1,28 @@
+{
+    "name": "mern-testing-server",
+    "version": "1.0.0",
+    "description": "Backend for MERN testing assignment",
+    "main": "src/server.js",
+    "scripts": {
+      "start": "node src/server.js",
+      "dev": "nodemon src/server.js",
+      "test": "jest --verbose",
+      "test:watch": "jest --watch",
+      "test:coverage": "jest --coverage",
+      "test:integration": "jest tests/integration/ --verbose",
+      "test:performance": "jest tests/performance/ --verbose"
+    },
+    "dependencies": {
+      "express": "^4.18.2",
+      "mongoose": "^7.0.0",
+      "cors": "^2.8.5",
+      "dotenv": "^16.0.3",
+      "bcryptjs": "^2.4.3"
+    },
+    "devDependencies": {
+      "jest": "^29.0.0",
+      "supertest": "^6.3.0",
+      "mongodb-memory-server": "^8.0.0",
+      "nodemon": "^2.0.0"
+    }
+  }
